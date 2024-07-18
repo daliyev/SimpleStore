@@ -6,6 +6,7 @@ from django.utils.translation import gettext_lazy as _
 User = get_user_model()
 
 
+@admin.register(User)
 class UserAdmin(DjangoUserAdmin):
     ordering = ['pk']
     list_display = (
@@ -29,6 +30,3 @@ class UserAdmin(DjangoUserAdmin):
             'fields': ('email', 'first_name', 'last_name', 'password1', 'password2'),
         }),
     )
-
-
-admin.site.register(User, UserAdmin)

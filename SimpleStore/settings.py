@@ -44,6 +44,9 @@ INSTALLED_APPS = [
     'common.apps.CommonConfig',
     'products.apps.ProductsConfig',
 
+    # 3rd party
+    'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
