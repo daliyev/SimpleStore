@@ -1,4 +1,5 @@
 from django.db import models
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import viewsets
 
@@ -10,6 +11,7 @@ from rest_framework import status
 
 class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Review.objects.all()
+    permission_classes = [IsAuthenticated]
     serializer_class = ReviewSerializer
 
     def create(self, request, *args, **kwargs):
@@ -31,11 +33,13 @@ class ReviewViewSet(viewsets.ModelViewSet):
 
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
+    permission_classes = [IsAuthenticated]
     serializer_class = CategorySerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
+    permission_classes = [IsAuthenticated]
     serializer_class = ProductSerializer
 
     def list(self, request, *args, **kwargs):
